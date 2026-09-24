@@ -1,0 +1,231 @@
+```html
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Jurnal Barber">
+  <title>Jurnal Barber</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div>
+      <h1>Jurnal Barber</h1>
+      <p>Încasări, tips și împărțirea cu șeful</p>
+    </div>
+    <button id="todayBtn" class="today-btn">Azi</button>
+  </header>
+
+  <main>
+
+    <!-- ACASĂ -->
+    <section id="homeScreen" class="screen active">
+
+      <div class="cards">
+        <div class="card">
+          <span>Tunsuri</span>
+          <strong id="todayCuts">0 lei</strong>
+        </div>
+
+        <div class="card">
+          <span>Tips</span>
+          <strong id="todayTips">0 lei</strong>
+        </div>
+
+        <div class="card">
+          <span>Total</span>
+          <strong id="todayTotal">0 lei</strong>
+        </div>
+      </div>
+
+      <button id="addCutBtn" class="primary-btn">
+        ＋ Adaugă tuns
+      </button>
+
+      <div class="split-card">
+        <div>
+          <span>Tu</span>
+          <strong id="todayMine">0 lei</strong>
+        </div>
+
+        <div>
+          <span>Șef</span>
+          <strong id="todayBoss">0 lei</strong>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <h2>Astăzi</h2>
+      </div>
+
+      <div id="todayEntries" class="entries"></div>
+
+    </section>
+
+
+    <!-- CALENDAR -->
+    <section id="calendarScreen" class="screen">
+
+      <div class="calendar-header">
+        <button id="prevMonth">‹</button>
+        <h2 id="calendarMonth"></h2>
+        <button id="nextMonth">›</button>
+      </div>
+
+      <div id="calendarGrid" class="calendar-grid"></div>
+
+      <div class="tabs">
+        <button class="tab active" data-period="week">Săptămână</button>
+        <button class="tab" data-period="month">Lună</button>
+      </div>
+
+      <div class="period-card">
+        <div>
+          <span>Tunsuri</span>
+          <strong id="periodCuts">0 lei</strong>
+        </div>
+
+        <div>
+          <span>Tips</span>
+          <strong id="periodTips">0 lei</strong>
+        </div>
+
+        <div>
+          <span>Tu</span>
+          <strong id="periodMine">0 lei</strong>
+        </div>
+
+        <div>
+          <span>Șef</span>
+          <strong id="periodBoss">0 lei</strong>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ISTORIC -->
+    <section id="historyScreen" class="screen">
+
+      <div class="section-title">
+        <h2>Istoric</h2>
+      </div>
+
+      <div id="historyEntries" class="history"></div>
+
+    </section>
+
+
+    <!-- PROFIL -->
+    <section id="profileScreen" class="screen">
+
+      <div class="section-title">
+        <h2>Servicii</h2>
+      </div>
+
+      <div id="servicesList"></div>
+
+      <button id="addServiceBtn" class="secondary-btn">
+        ＋ Adaugă serviciu
+      </button>
+
+
+      <div class="section-title">
+        <h2>Împărțirea cu șeful</h2>
+      </div>
+
+      <div class="settings-card">
+
+        <label>
+          Prag
+          <input id="thresholdInput" type="number" min="0">
+        </label>
+
+        <label>
+          Cât păstrezi tu sub prag
+          <input id="fixedMineInput" type="number" min="0">
+        </label>
+
+        <button id="saveRuleBtn" class="primary-btn">
+          Salvează regula
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- NAVIGAȚIE -->
+  <nav class="bottom-nav">
+
+    <button class="nav-btn active" data-screen="homeScreen">
+      <span>⌂</span>
+      <small>Acasă</small>
+    </button>
+
+    <button class="nav-btn" data-screen="calendarScreen">
+      <span>▦</span>
+      <small>Calendar</small>
+    </button>
+
+    <button class="nav-btn" data-screen="historyScreen">
+      <span>☷</span>
+      <small>Istoric</small>
+    </button>
+
+    <button class="nav-btn" data-screen="profileScreen">
+      <span>⚙</span>
+      <small>Profil</small>
+    </button>
+
+  </nav>
+
+
+  <!-- MODAL TUNS -->
+  <div id="cutModal" class="modal">
+
+    <div class="modal-box">
+
+      <div class="modal-header">
+        <h2 id="cutModalTitle">Adaugă tuns</h2>
+        <button id="closeCutModal">×</button>
+      </div>
+
+      <label>
+        Serviciu
+        <select id="serviceSelect"></select>
+      </label>
+
+      <label>
+        Preț
+        <input id="priceInput" type="number" min="0">
+      </label>
+
+      <label>
+        Tips
+        <input id="tipsInput" type="number" min="0" value="0">
+      </label>
+
+      <button id="saveCutBtn" class="primary-btn">
+        Salvează
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script src="app.js"></script>
+
+</body>
+</html>
+```
